@@ -1,0 +1,12 @@
+#asidebarContainer{
+    display:flex;
+    flex-direction: column;
+    background-color: #5861AE;
+    height:600px;
+    width:57px;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    /* position:sticky;
+    top:80px; */
+}

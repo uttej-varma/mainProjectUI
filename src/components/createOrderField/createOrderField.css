@@ -1,0 +1,20 @@
+.createOrderTableRow td{
+    text-align: center;
+    padding: 10px 0px;
+
+}
+#createOrderQuantityInput{
+    width:50px;
+}
+.createOrderTableRow td:nth-child(3){
+    display:flex;
+    justify-content: flex-start;
+    gap:40px;
+    min-width: 400px;
+}
+.createOrderTableRow{
+    height:60px;
+}
+.createOrderImageField{
+    color: blue;
+}

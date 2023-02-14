@@ -1,0 +1,52 @@
+.viewSummaryMainContainer{
+    position:absolute;
+    height:100vh;
+    width:60vw;
+    top:0px;
+    right:0px;
+    background-color:#F4F9FF ;
+
+}
+
+.viewSummarytopPart{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #5861AE;
+    color:white;
+    padding:0px 10px;
+}
+.viewSummarytopinfoPart{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:15%;
+    background-color: #F4F9FF;
+}
+.viewSummarytopinfoPart section{
+    margin-left: 5%;
+}
+.viewSummarymiddlePart{
+    margin-left: 5%;
+}
+.viewSummarymiddlePartTable tr td{
+   width:300px;
+   min-width: 200px;
+}
+.viewSummarymiddlePartTable>tbody>tr>td{
+    border-bottom: 1px solid #F4F9FF;
+}
+.summaryTableFooterTotal{
+    background-color: #5861AE;
+    color: white;
+}
+.summaryTableFooterTotal >td{
+    border:1px solid #5861AE
+}
+.viewSummaryBottomPart{
+    margin-left: 5%;
+}
+.summaryBottomAddressBox{
+    border:1px solid black;
+    max-width: 200px;
+}

@@ -1,0 +1,45 @@
+.orderlistMiddlepart{
+    display:flex;
+}
+.orderlistTableContainer{
+    margin:10px 50px;
+}
+.orderlistTableHeaderRow{
+    background-color: black;
+}
+.orderlistTableHeader>tr>th{
+    width:180px;
+    color:white;
+}
+td{
+    text-align: center;
+    width:180px;
+}
+.orderlistTable{
+    overflow-y: auto;
+    height:500px;
+    display:block;
+
+}
+.orderlistTable tr{
+    display:block;
+}
+.orderlistTableContainer{
+    position:relative;
+}
+.orderlistTable>.orderlistTableHeader>.orderlistTableHeaderRow{
+    position:absolute;
+    top:-15px;
+}
+tbody td{
+    padding-left: 10px;
+}
+.orderlistTableHeaderRow:last-child{
+    padding-right: 14px;
+}
+.headerPadding{
+    padding-right: 14px;
+}
+.orderlistSummaryViewIcon:hover{
+    cursor: pointer;
+}

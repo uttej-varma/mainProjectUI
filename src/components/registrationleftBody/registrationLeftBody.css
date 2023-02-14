@@ -1,0 +1,75 @@
+
+#registrationLeftBodyContainer{
+    flex:30%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 50px;
+
+}
+#loginLeftBodyContainer{
+    flex:50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 100px; 
+}
+#registrationLeftBodyContainertopPart{
+    margin-top: 100px;
+}
+#loginLeftBodyContainertopPart{
+    margin-top: 100px;
+}
+#registrationLeftBodyContainertopPart>h1{
+    font-size: 40px;
+    color:#5861AE;
+}
+#loginLeftBodyContainertopPart>h1{
+    font-size: 70px;
+    color:#5861AE;
+}
+#registrationLeftBodyContainertopPart>p{
+    font-size: 20px;
+    color:#565657;
+}
+#loginLeftBodyContainertopPart>p{
+    font-size: 20px;
+    color:#565657;
+}
+#registrationLeftBodyContainerbottomPart>p{
+    font-size: 20px;
+    color:#565657;
+}
+#loginLeftBodyContainerbottomPart>p{
+    font-size: 20px;
+    color:#565657;
+}
+#registrationLeftBodyContainerbottomPart>button{
+    color:#5861AE ;
+    background-color: white;
+    border: 1px solid #5861AE;
+    width:100px;
+    height:30px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#loginLeftBodyContainerbottomPart>button{
+    color:#5861AE ;
+    background-color: white;
+    border: 1px solid #5861AE;
+    width:100px;
+    height:30px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#registrationLeftBodyContainerbottomPart>button:hover{
+    background-color: #5861AE;
+    color:white;
+    cursor: pointer;
+}
+#loginLeftBodyContainerbottomPart>button:hover{
+    background-color: #5861AE;
+    color:white;
+    cursor: pointer;
+}

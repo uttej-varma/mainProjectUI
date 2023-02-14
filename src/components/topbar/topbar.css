@@ -1,0 +1,44 @@
+#navbarContainer{
+    display:flex;
+    align-items: center;
+    height:80px;
+    width:100%;
+    justify-content: space-between;
+    /* position:sticky;
+    top:0px; */
+}
+
+#topbarRightListContainer{
+    list-style: none;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.topbarProfilePhoto{
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#topbarRightListContainer>li{
+    margin:10px 10px;
+}
+.topbarLogo{
+    color:#5861AE;
+    padding-left: 20px;
+}
+.topbarRightListbackground{
+    background-color: #5861AE;
+}
+.topbarRightlistUserNameContainer{
+  display:flex;
+  align-items: center;
+}
+#topbarRightListLogoutButton{
+    border-radius: 3px;
+    background-color: red;
+    color:white;
+}
+#topbarRightListLogoutButton:hover{
+    cursor: pointer;
+}
