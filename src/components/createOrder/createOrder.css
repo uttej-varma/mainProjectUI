@@ -14,7 +14,12 @@
 .createOrdermiddlePartButton{
     float:right;
     margin:0px 10px;
+    color:#5861AE;
+    border:1px solid #5861AE;
+    border-radius: 3px;
 }
 .createOrdermiddlePartButton:hover{
     cursor: pointer;
+    background-color: #5861AE;
+    color:white;
 }

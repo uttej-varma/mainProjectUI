@@ -1,0 +1,20 @@
+.createOrdermiddlePart{
+    display:flex;
+    background-color: #F8F9FF;
+}
+.createOrdermiddlePart>section{
+    flex:75%;
+}
+.createOrdermiddlePart>section>button{
+    margin-left: 90%;
+    margin-top: 40%;
+    background-color: white;
+    color:#5861AE;
+    border:1px solid #5861AE;
+    border-radius: 3px;
+}
+.createOrdermiddlePart>section>button:hover{
+    background-color: #5861AE;
+    color:white;
+    cursor: pointer;
+}
