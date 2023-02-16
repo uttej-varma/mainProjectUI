@@ -6,9 +6,12 @@ import {orders} from "../../dummyOrderList";
 import {Visibility} from "@mui/icons-material";
 import ViewSummary from "../orderlistsummary/viewsummary";
 import {useState} from "react";
+import axios from "axios";
 
 const OrderList=()=>{
     const [summary,setSummary]=useState(false);
+    const url=`http://localhost:3400/api/v1/user/order?userId=${JSON.parse(localStorage.getItem('userData')).id}`;
+    axios.get(url).then((response)=>{console.log(response.data.userOrders)}).catch((err)=>{console.log(err)});
     return(
        <>
         <TopBar/>
