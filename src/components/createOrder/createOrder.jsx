@@ -10,11 +10,18 @@ import ViewSummary from "../orderlistsummary/viewsummary";
 import SideBar from "../sidebar/sidebar";
 import TopBar from "../topbar/topbar";
 import "./createOrder.css";
-import { useState } from "react";
+import {useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const CreateOrder=()=>{
+  const navigate=useNavigate();
     const [summaryDisplay,setSummaryDisplay]=useState(false);
+   
+    
+   
     const cancelClickHandler=()=>{
-      window.location.reload(false);
+      // window.location.reload(false);
+      navigate("/createOrderLanding");
     }
     return(
         <>
@@ -33,7 +40,7 @@ const CreateOrder=()=>{
               </tr> 
             </thead>
             <tbody>
-                <CreateOrderShirt/>
+                <CreateOrderShirt />
                 <CreateOrderTshirt/>
                 <CreateOrderTrousers/>
                 <CreateOrderJeans/>
@@ -41,13 +48,24 @@ const CreateOrder=()=>{
                 <CreateOrderJoggers/>
                 <CreateOrderOthers/>
             </tbody>
-        </table>
-        <button className="createOrdermiddlePartButton" onClick={()=>{setSummaryDisplay(true)}}>Proceed</button>
-        <button className="createOrdermiddlePartButton" onClick={cancelClickHandler}>Cancel</button>
+            <tfoot>
+              <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><button className="createOrdermiddlePartButton" onClick={()=>{setSummaryDisplay(true)}}>Proceed</button>
+        <button className="createOrdermiddlePartButton" onClick={cancelClickHandler}>Cancel</button></td>
+              </tr>
+              
+            </tfoot>
+
+        </table> 
     </section>
   </section>
+  
   <Footer/>
-  {summaryDisplay&&<ViewSummary CreateOrder={true} exitHandler={setSummaryDisplay}/>}
+  {summaryDisplay&&<ViewSummary CreateOrder={true} exitHandler={setSummaryDisplay} />}
         </>
     )
 }

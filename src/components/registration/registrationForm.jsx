@@ -5,8 +5,11 @@ import RegistrationFooter from "../RegistrationFooter/registrationFooter";
 import "./registrationForm.css";
 import { useState } from "react";
 import axios from "axios"
+// import { Navigate } from "../navigateCustomHook/custom";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationForm=()=>{
+    const navigate=useNavigate();
     const [form,setForm]=useState({userName:"",email:"",phone:"",state:"",district:"",address:"",pincode:"",password:""});
     const [error,errorHandler]=useState({userName:{isValid:true,message:""},email:{isValid:true,message:""},phone:{isValid:true,message:""},
     pincode:{isValid:true,message:""},password:{isValid:true,message:""}});
@@ -29,7 +32,14 @@ const RegistrationForm=()=>{
         district:form.district,
         address:form.address,
         pincode:form.pincode
-       }).then((response)=>{console.log(response.data)}).catch((err)=>{
+       }).then((response)=>{
+            // if(response.data.message==="registered successfully")
+            // {
+            //     Navigate("/login");
+            // }
+            navigate("/login")
+            console.log(response.data.message)
+       }).catch((err)=>{
             if(err.response.data.message==="user already exist")
             {
                 setMainMessage("Email already exist");

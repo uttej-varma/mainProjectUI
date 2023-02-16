@@ -1,5 +1,13 @@
 import "./registrationTopBar.css"
-const RegistrationTopBar=()=>{
+import { useNavigate } from "react-router-dom";
+const RegistrationTopBar=(props)=>{
+    const navigate=useNavigate();
+    const Navigating=()=>{
+           navigate("/login");
+    }
+    const NavigatingtoReg=()=>{
+        navigate("/");
+    }
     return(
         <>
          <nav id="LP-header-container">
@@ -16,9 +24,11 @@ const RegistrationTopBar=()=>{
                     <div >
                         Career
                     </div>
-                    <div >
+                    {
+                        props.login?<div onClick={NavigatingtoReg}>Register</div>:<div onClick={Navigating} >
                         Sign In
                     </div>
+                    }
                 </div>
             </nav>
             <hr id="LP-header-bottom-hr"></hr>

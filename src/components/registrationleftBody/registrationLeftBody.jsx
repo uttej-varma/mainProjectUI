@@ -1,5 +1,13 @@
 import "./registrationLeftBody.css"
+import { useNavigate } from "react-router-dom";
 const RegistrationLeftBody=(props)=>{
+    const navigate=useNavigate();
+    const goToSignIn=()=>{
+        navigate("/login");
+    }
+    const goToRegister=()=>{
+        navigate("/");
+    }
     return(
         <>
           <section id={!props.loginpage?"registrationLeftBodyContainer":"loginLeftBodyContainer"}>
@@ -11,7 +19,7 @@ const RegistrationLeftBody=(props)=>{
             </section>
             <section id={!props.loginpage?"registrationLeftBodyContainerbottomPart":"loginLeftBodyContainerbottomPart"}>
                 {!props.loginpage?<p>Already have Account ?</p>:<p>Don't have an Account ?</p>}
-                {!props.loginpage?<button>Sign-In</button>:<button>Register</button>}
+                {!props.loginpage?<button onClick={goToSignIn}>Sign-In</button>:<button onClick={goToRegister}>Register</button>}
             </section>
             </section>  
         </>

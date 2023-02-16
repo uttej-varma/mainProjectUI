@@ -1,6 +1,11 @@
 import {Close} from "@mui/icons-material";
+import CreateSummaryBody from "../createOrderSummarryBody/createSummaryBody";
 import "./viewsummary.css";
+import CreateContext from "../orderSummaryContext/createContext";
+import { useContext } from "react";
+
 const ViewSummary=(props)=>{
+    const summaryHandling=useContext(CreateContext);
    const OrderListSummary=()=>{
     return(
         <>
@@ -66,7 +71,7 @@ const ViewSummary=(props)=>{
                 <h4>Address</h4>
                 <article className="summaryBottomAddressBox">
                     <h4>Home</h4>
-                    <p>3-130,AsrNagar-I,vizianagaram</p>
+                    <p>rando,1-132,vzm</p>
                 </article>
             </section>
         </section>
@@ -74,6 +79,9 @@ const ViewSummary=(props)=>{
     )
    }
    const CreateOrderSummary=()=>{
+    
+    
+    console.log(summaryHandling.dynamic.address);
     return(
         <>
         <section className="viewSummaryMainContainer">
@@ -84,7 +92,7 @@ const ViewSummary=(props)=>{
             <section className="viewSummarytopinfoPart">
                 <section>
                     <h4>StoreLocation:</h4>
-                    <p>jp nagar</p>
+                    <p>{summaryHandling.dynamic.userFrontend.location}</p>
                 </section>
                 <section>
                     <h4>StoreAddress:</h4>
@@ -99,25 +107,20 @@ const ViewSummary=(props)=>{
                 <h4>Order Details</h4>
                 <table className="viewSummarymiddlePartTable">
                     <tbody>
-                        <tr>
-                            <td>Shirts</td>
-                            <td>Washing,ironing</td>
-                            <td>5*20</td>
-                            <td><b>100</b></td>
-                        </tr>
-                        <tr>
-                            <td>T-Shirts</td>
-                            <td>Washing,ironing</td>
-                            <td>5*20</td>
-                            <td><b>100</b></td>
-                        </tr>
+                        
+                   <CreateSummaryBody/>
+                        
                     </tbody>
                     <tfoot>
                         <tr>
                             <td></td>
                             <td></td>
                             <td>Sub Total:</td>
-                            <td><b>200</b></td>
+                            <td><b>{(summaryHandling.dynamic.shirts.totalCost*summaryHandling.dynamic.shirts.quantity)+(summaryHandling.dynamic.tShirts.totalCost*summaryHandling.dynamic.tShirts.quantity)
+                                   +(summaryHandling.dynamic.trousers.totalCost*summaryHandling.dynamic.trousers.quantity)+(summaryHandling.dynamic.jeans.totalCost*summaryHandling.dynamic.jeans.quantity)
+                                   +(summaryHandling.dynamic.boxers.totalCost*summaryHandling.dynamic.boxers.quantity)+(summaryHandling.dynamic.joggers.totalCost*summaryHandling.dynamic.joggers.quantity)
+                                   +(summaryHandling.dynamic.others.totalCost*summaryHandling.dynamic.others.quantity)
+                                    }</b></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -129,7 +132,11 @@ const ViewSummary=(props)=>{
                             <td></td>
                             <td></td>
                             <td>Total:</td>
-                            <td><b>RS 290</b></td>
+                            <td><b>{((summaryHandling.dynamic.shirts.totalCost+summaryHandling.dynamic.tShirts.totalCost+summaryHandling.dynamic.trousers.totalCost
+                                    +summaryHandling.dynamic.jeans.totalCost+summaryHandling.dynamic.boxers.totalCost+summaryHandling.dynamic.joggers.totalCost
+                                    +summaryHandling.dynamic.others.totalCost)*(summaryHandling.dynamic.shirts.quantity+summaryHandling.dynamic.tShirts.quantity+summaryHandling.dynamic.trousers.quantity
+                                        +summaryHandling.dynamic.jeans.quantity+summaryHandling.dynamic.boxers.quantity+summaryHandling.dynamic.joggers.quantity
+                                        +summaryHandling.dynamic.others.quantity))+90}</b></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -138,7 +145,7 @@ const ViewSummary=(props)=>{
                 <h4>Address</h4>
                 <article className="summaryBottomAddressBox">
                     <h4>Home</h4>
-                    <p>3-130,AsrNagar-I,vizianagaram</p>
+                    <p>{summaryHandling.dynamic.userFrontend.address}</p>
                 </article>
             </section>
         </section>
