@@ -50,3 +50,18 @@
     border:1px solid black;
     max-width: 200px;
 }
+.confirmButton{
+    position:absolute;
+    top:90%;
+    right:30px;
+    background-color: #5861AE;
+    color:white;
+    border: 1px solid #5861AE;
+    width:100px;
+    height:30px;
+    border-radius: 3px;;
+}
+.confirmButton:hover{
+    cursor: pointer;
+    
+}

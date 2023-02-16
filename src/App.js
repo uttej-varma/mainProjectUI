@@ -5,6 +5,7 @@ import LoginPage from "./components/loginpage/loginPage";
 import RegistrationForm from "./components/registration/registrationForm";
 import CreateOrderLanding from "./components/createOrderLandingPage/createOrderLandingPage";
 import CreateContextProvider from "./components/contextOrderProvider/createContextProvider";
+import OrderList from "./components/orderlist/orderList";
 
 // import OrderList from "./components/orderlist/orderList";
 
@@ -20,6 +21,7 @@ function App() {
     <Route path="login" element={<LoginPage/>}/>
     <Route path="createOrderLanding" element={<CreateOrderLanding/>}/>
     <Route path="createOrderPage" element={<CreateOrder/>}/>
+    <Route path="userOrderList" element={<OrderList/>}/>
   </Routes>
   </CreateContextProvider>
   
