@@ -32,13 +32,16 @@ td{
     top:-15px;
 }
 tbody td{
-    padding-left: 10px;
+    padding-right: 10px;
+}
+tbody .paddingRight{
+    padding-right: 30px;
 }
 .orderlistTableHeaderRow:last-child{
     padding-right: 14px;
 }
 .headerPadding{
-    padding-right: 14px;
+    padding-right: 25px;
 }
 .orderlistSummaryViewIcon:hover{
     cursor: pointer;
