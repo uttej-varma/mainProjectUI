@@ -2,16 +2,32 @@ import Footer from "../footer/footer";
 import SideBar from "../sidebar/sidebar";
 import TopBar from "../topbar/topbar";
 import "./orderlist.css";
-import {orders} from "../../dummyOrderList";
+// import {orders} from "../../dummyOrderList";
+import { useEffect } from "react";
 import {Visibility} from "@mui/icons-material";
 import ViewSummary from "../orderlistsummary/viewsummary";
 import {useState} from "react";
 import axios from "axios";
 
 const OrderList=()=>{
-    const [summary,setSummary]=useState(false);
+    const [summary,setSummary]=useState([]);
+    const arr=[];
+    const [userOrderList,setUserOrderList]=useState([]);
     const url=`http://localhost:3400/api/v1/user/order?userId=${JSON.parse(localStorage.getItem('userData')).id}`;
-    axios.get(url).then((response)=>{console.log(response.data.userOrders)}).catch((err)=>{console.log(err)});
+     useEffect(()=>{
+        axios.get(url).then((response)=>{
+            setUserOrderList(response.data.userOrders);
+            setSummary(new Array(response.data.userOrders.length).fill(false));
+            // console.log(response.data);
+            // console.log(userOrderList)
+        }).catch((err)=>{console.log(err)});
+     },[])
+     const visibleSummaryHandler=(index)=>{
+        summary[index]=true;
+        setSummary([...summary]);
+     }
+    
+
     return(
        <>
         <TopBar/>
@@ -35,18 +51,20 @@ const OrderList=()=>{
                 <tbody >
                     
                     {
-                        orders.map((value,index)=>{
+                        userOrderList.reverse().map((value,index)=>{
+                            arr[index]=value;
                             return(
                                 <tr key={index}>
-                                   <td>{value.orderId}</td>
-                                   <td>{value.orderDate_time}</td>
-                                   <td>{value.storeLocation}</td>
+                                   <td>Ord:{value._id.split("")[18]}{value._id.split("")[19]}{value._id.split("")[20]}{value._id.split("")[21]}{value._id.split("")[22]}{value._id.split("")[23]}</td>
+                                   <td>{value.createdAt.split("T")[0]}&{value.createdAt.split("T")[1].split(".")[0]}</td>
+                                   <td>{value.location}</td>
                                    <td>{value.city}</td>
-                                   <td>{value.storePhone}</td>
-                                   <td>{value.totalItems}</td>
-                                   <td>{value.price}</td>
-                                   <td>{value.status}</td>
-                                   <td><Visibility className="orderlistSummaryViewIcon" onClick={()=>{setSummary(true)}}/></td>
+                                   <td>9999999999</td>
+                                   <td className="paddingRight"><b>{value.totalItems}</b></td>
+                                   <td className="paddingRight"><b>{value.totalPrice}</b></td>
+                                   <td>staticvalue</td>
+                                   <td><Visibility className="orderlistSummaryViewIcon" onClick={()=>{visibleSummaryHandler(index)}} /></td>
+                                   {summary[index] && <td><ViewSummary setarray={setSummary} array={summary} index={index} mainArray={arr}/></td> }
                                 </tr>
                             )
                         })
@@ -59,7 +77,7 @@ const OrderList=()=>{
 
         </section>
         </div>
-       {summary &&  <ViewSummary setter={setSummary}/>}
+       {/* {summary &&  <ViewSummary setter={setSummary} value={arr}/>} */}
         
         <Footer/>
        </>

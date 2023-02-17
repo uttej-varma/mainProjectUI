@@ -39,38 +39,38 @@ const CreateOrder=()=>{
     let obj={};
     if(summaryHandling.dynamic.shirts.isValidShirts===true)
     {totalQuantity+=summaryHandling.dynamic.shirts.quantity;
-        totalCost+=summaryHandling.dynamic.shirts.totalCost;
+        totalCost+=summaryHandling.dynamic.shirts.totalCost*summaryHandling.dynamic.shirts.quantity;
         obj={...obj,shirts:{type:"Shirts",
         service:[summaryHandling.dynamic.shirts.washing.type,summaryHandling.dynamic.shirts.iron.type,summaryHandling.dynamic.shirts.drywash.type,summaryHandling.dynamic.shirts.chemicalwash.type]}}
     }
     if(summaryHandling.dynamic.tShirts.isValidTShirts===true){totalQuantity+=summaryHandling.dynamic.tShirts.quantity;
-        totalCost+=summaryHandling.dynamic.tShirts.totalCost;
-        obj={...obj,tShirts:{type:"Shirts",
+        totalCost+=summaryHandling.dynamic.tShirts.totalCost*summaryHandling.dynamic.tShirts.quantity;
+        obj={...obj,tShirts:{type:"T-Shirts",
         service:[summaryHandling.dynamic.tShirts.washing.type,summaryHandling.dynamic.tShirts.iron.type,summaryHandling.dynamic.tShirts.drywash.type,summaryHandling.dynamic.tShirts.chemicalwash.type]}}
     }
     if(summaryHandling.dynamic.trousers.isValidTrousers===true){totalQuantity+=summaryHandling.dynamic.trousers.quantity;
-        totalCost+=summaryHandling.dynamic.trousers.totalCost;
-        obj={...obj,trousers:{type:"Shirts",
+        totalCost+=summaryHandling.dynamic.trousers.totalCost*summaryHandling.dynamic.trousers.quantity;
+        obj={...obj,trousers:{type:"Trousers",
         service:[summaryHandling.dynamic.trousers.washing.type,summaryHandling.dynamic.trousers.iron.type,summaryHandling.dynamic.trousers.drywash.type,summaryHandling.dynamic.trousers.chemicalwash.type]}}
     }
     if(summaryHandling.dynamic.jeans.isValidJeans===true){totalQuantity+=summaryHandling.dynamic.jeans.quantity;
-        totalCost+=summaryHandling.dynamic.jeans.totalCost;
-        obj={...obj,jeans:{type:"Shirts",
+        totalCost+=summaryHandling.dynamic.jeans.totalCost*summaryHandling.dynamic.jeans.quantity;
+        obj={...obj,jeans:{type:"Jeans",
         service:[summaryHandling.dynamic.jeans.washing.type,summaryHandling.dynamic.jeans.iron.type,summaryHandling.dynamic.jeans.drywash.type,summaryHandling.dynamic.jeans.chemicalwash.type]}}
     }
     if(summaryHandling.dynamic.boxers.isValidBoxers===true){totalQuantity+=summaryHandling.dynamic.boxers.quantity;
-        totalCost+=summaryHandling.dynamic.boxers.totalCost;
-        obj={...obj,boxers:{type:"Shirts",
+        totalCost+=summaryHandling.dynamic.boxers.totalCost*summaryHandling.dynamic.boxers.quantity;
+        obj={...obj,boxers:{type:"Boxers",
         service:[summaryHandling.dynamic.boxers.washing.type,summaryHandling.dynamic.boxers.iron.type,summaryHandling.dynamic.boxers.drywash.type,summaryHandling.dynamic.boxers.chemicalwash.type]}}
     }
     if(summaryHandling.dynamic.joggers.isValidJoggers===true){totalQuantity+=summaryHandling.dynamic.joggers.quantity;
-        totalCost+=summaryHandling.dynamic.joggers.totalCost;
-        obj={...obj,joggers:{type:"Shirts",
+        totalCost+=summaryHandling.dynamic.joggers.totalCost*summaryHandling.dynamic.joggers.quantity;
+        obj={...obj,joggers:{type:"Joggers",
         service:[summaryHandling.dynamic.joggers.washing.type,summaryHandling.dynamic.joggers.iron.type,summaryHandling.dynamic.joggers.drywash.type,summaryHandling.dynamic.joggers.chemicalwash.type]}}
     }
     if(summaryHandling.dynamic.others.isValidOthers===true){totalQuantity+=summaryHandling.dynamic.others.quantity;
-        totalCost+=summaryHandling.dynamic.others.totalCost;
-        obj={...obj,others:{type:"Shirts",
+        totalCost+=summaryHandling.dynamic.others.totalCost*summaryHandling.dynamic.others.quantity;
+        obj={...obj,others:{type:"Others",
         service:[summaryHandling.dynamic.others.washing.type,summaryHandling.dynamic.others.iron.type,summaryHandling.dynamic.others.drywash.type,summaryHandling.dynamic.others.chemicalwash.type]}}
     }
 

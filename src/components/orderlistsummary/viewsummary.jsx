@@ -178,7 +178,19 @@ const ViewSummary=(props)=>{
                 
                       }
                 )
-                navigate("/login")
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'please login again',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Go to loginPage',
+                    // timer: 1500
+                  }).then((willNavigate)=>{
+                    if(willNavigate){
+                        navigate("/login");
+                    }
+                  })
+               
             }
           });
           
@@ -189,76 +201,91 @@ const ViewSummary=(props)=>{
     //     console.log(props.mainData)
     // }
    const OrderListSummary=()=>{
-    return(
-        <>
-        <section className="viewSummaryMainContainer">
-            <section className="viewSummarytopPart">
-               <h3>Summary</h3>
-               <Close onClick={()=>{props.setter(false)}}/>
-            </section>
-            <section className="viewSummarytopinfoPart">
-                <section>
-                    <h4>StoreLocation:</h4>
-                    <p>jp nagar</p>
+    // console.log(props.array);
+    const closeSummary=(index)=>{
+        let urr=[...props.array];
+        urr[index]=false;
+        props.setarray([...urr]);
+    }
+    let obj=props.mainArray[props.mainArray.length-1-props.index].summary.body;
+    let bodyarr=[];
+    for(let key in obj){
+        bodyarr.push(obj[key]);
+    }
+    // console.log(bodyarr);
+    
+        return(
+            <>
+            <section className="viewSummaryMainContainer">
+                <section className="viewSummarytopPart">
+                   <h3>Summary</h3>
+                   <Close onClick={()=>{closeSummary(props.index)}}/>
                 </section>
-                <section>
-                    <h4>StoreAddress:</h4>
-                    <p>near phonebooth,100ft ringroad</p>
+                <section className="viewSummarytopinfoPart">
+                    <section>
+                        <h4>StoreLocation:</h4>
+                        <p>{props.mainArray[props.mainArray.length-1-props.index].location}</p>
+                    </section>
+                    <section>
+                        <h4>StoreAddress:</h4>
+                        <p>Beside Govt.school,100ft ringRoad</p>
+                    </section>
+                    <section>
+                        <h4>Phone:</h4>
+                        <p>9999999999</p>
+                    </section>
                 </section>
-                <section>
-                    <h4>Phone:</h4>
-                    <p>9999999999</p>
+                <section className="viewSummarymiddlePart">
+                    <h4>Order Details</h4>
+                    <table className="viewSummarymiddlePartTable">
+                        <tbody>
+                            {
+                                bodyarr.map((value,index)=>{
+                                    return(
+                                        <tr key={index}>
+                                           <td>{value.type}</td>
+                                           <td>{value.service.join("")}</td>
+                                           {/* <td>{props.mainArray[props.mainArray.length-1-props.index].totalItems}x{props.mainArray[props.mainArray.length-1-props.index].totalPrice}=</td>
+                                           <td>{props.mainArray[props.mainArray.length-1-props.index].totalItems*props.mainArray[props.mainArray.length-1-props.index].totalPrice}</td> */}
+                                        </tr>
+                                    )
+                                })
+
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>Sub Total:</td>
+                                <td><b>{props.mainArray[props.mainArray.length-1-props.index].totalPrice}Rs/-</b></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>PickUp charge:</td>
+                                <td><b>90</b></td>
+                            </tr>
+                            <tr className="summaryTableFooterTotal">
+                                <td></td>
+                                <td></td>
+                                <td>Total:</td>
+                                <td><b>{props.mainArray[props.mainArray.length-1-props.index].totalPrice+90}Rs/-</b></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </section>
+                <section className="viewSummaryBottomPart">
+                    <h4>Address</h4>
+                    <article className="summaryBottomAddressBox">
+                        <h4>Home</h4>
+                        <p>{props.mainArray[props.mainArray.length-1-props.index].summary.address}</p>
+                    </article>
                 </section>
             </section>
-            <section className="viewSummarymiddlePart">
-                <h4>Order Details</h4>
-                <table className="viewSummarymiddlePartTable">
-                    <tbody>
-                        <tr>
-                            <td>Shirts</td>
-                            <td>Washing,ironing</td>
-                            <td>5*20</td>
-                            <td><b>100</b></td>
-                        </tr>
-                        <tr>
-                            <td>T-Shirts</td>
-                            <td>Washing,ironing</td>
-                            <td>5*20</td>
-                            <td><b>100</b></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Sub Total:</td>
-                            <td><b>200</b></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>PickUp charge:</td>
-                            <td><b>90</b></td>
-                        </tr>
-                        <tr className="summaryTableFooterTotal">
-                            <td></td>
-                            <td></td>
-                            <td>Total:</td>
-                            <td><b>RS 290</b></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </section>
-            <section className="viewSummaryBottomPart">
-                <h4>Address</h4>
-                <article className="summaryBottomAddressBox">
-                    <h4>Home</h4>
-                    <p>rando,1-132,vzm</p>
-                </article>
-            </section>
-        </section>
-        </>
-    )
+            </>
+        )
+    
    }
    const CreateOrderSummary=()=>{
     
@@ -274,7 +301,7 @@ const ViewSummary=(props)=>{
             <section className="viewSummarytopinfoPart">
                 <section>
                     <h4>StoreLocation:</h4>
-                    <p>{summaryHandling.dynamic.userFrontend.location}</p>
+                    <p>{JSON.parse(localStorage.getItem('userData')).location}</p>
                 </section>
                 <section>
                     <h4>StoreAddress:</h4>
@@ -326,7 +353,7 @@ const ViewSummary=(props)=>{
                 <h4>Address</h4>
                 <article className="summaryBottomAddressBox">
                     <h4>Home</h4>
-                    <p>{summaryHandling.dynamic.userFrontend.address}</p>
+                    <p>{JSON.parse(localStorage.getItem('userData')).address}</p>
                 </article>
             </section>
             <article>
